@@ -1,5 +1,8 @@
 # Autenticação e Listagem de Usuários
 
+## OBS ->  Criei uma branch 'refactor' de melhorias!
+
+
 Este projeto é o resultado de um teste técnico com foco em **autenticação de usuários**, **listagem com paginação**, **filtros**, e **funcionalidades adicionais como exportação para Excel e ordenação alfabética**.
 
 ---
