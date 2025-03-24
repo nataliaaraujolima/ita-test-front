@@ -28,6 +28,7 @@ import { logout } from '../../../../store/auth/authSlice';
 import { Auth } from '../../../auth/pages/auth';
 import { filteredUsers } from '../../functions/filteredUsers';
 import { exportToExcel } from '../../functions/exportUser';
+import { AddUserDialog } from '../../components/AddUserDialog/AddUserDialog';
 export const Home = () => {
   const { page, per_page, setSearchParams } = useUtils();
   const dispatch = useDispatch();
@@ -44,6 +45,11 @@ export const Home = () => {
 
   const { userData } = useSelector((state) => state.userData);
   const email = userData.email;
+
+  const [modalAddUserDialog, setModalAddUserDialog] = useState(false);
+
+  const openModalAddUserDialog = () => setModalAddUserDialog(true);
+  const closeModalAddUserDialog = () => setModalAddUserDialog(false);
 
   if (isLoading) {
     return <WelcomeScreen />;
@@ -97,6 +103,14 @@ export const Home = () => {
         <Button onClick={() => exportToExcel(mappedUsers)} style={{ marginBottom: 16 }}>
           Exportar para Excel
         </Button>
+        <Button onClick={openModalAddUserDialog} style={{ marginBottom: 16 }}>
+          Adicionar usuário
+        </Button>
+        <AddUserDialog
+          onClick={openModalAddUserDialog}
+          openAddUserDialog={modalAddUserDialog}
+          closeaddUserDialog={closeModalAddUserDialog}
+        />
         <UserTable
           columns={columns}
           dataSource={filteredUsers(mappedUsers, search)}
