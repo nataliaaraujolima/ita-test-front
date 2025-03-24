@@ -1,3 +1,5 @@
+import * as yup from 'yup';
+
 export function useHelpers(data, paginacaoData) {
   const mappedUsers = data?.map((user) => ({
     id: user.id,
@@ -15,8 +17,17 @@ export function useHelpers(data, paginacaoData) {
     total_pages: paginacaoData?.total_pages,
   };
 
+  const validationAddUserSchema = yup.object().shape({
+    email: yup.string().email('Email inválido').required('Este campo é obrigatório'),
+    password: yup
+      .string()
+      .min(6, 'A senha deve ter pelo menos 6 caracteres')
+      .required('Este campo é obrigatório'),
+  });
+
   return {
     mappedUsers,
     paginationData,
+    validationAddUserSchema,
   };
 }
