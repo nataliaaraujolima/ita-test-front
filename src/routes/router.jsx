@@ -6,15 +6,13 @@ import { Auth } from '../features/auth/pages/auth';
 export const router = createBrowserRouter([
   {
     path: '/',
-    // element: <AccessAuthenticated element={<Home />} />,
-    element: <Home />,
+    element: <AccessAuthenticated element={<Home />} />,
 
     errorElement: <h1>404</h1>,
     children: [
       {
         path: '/',
-        // element: <AccessAuthenticated element={<Home />} />,
-        element: <Home />,
+        element: <AccessAuthenticated element={<Home />} />,
       },
     ],
   },

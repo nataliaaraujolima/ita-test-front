@@ -4,6 +4,7 @@ import { Button, Input as InputAntd } from 'antd';
 export const Container = styled.div`
   display: flex;
   height: 100vh;
+  justify-content: center;
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -26,6 +27,7 @@ export const FormContainer = styled.div`
   flex: 1;
   display: flex;
   justify-content: center;
+  align-items: center;
   background-color: #f5f5f5;
 
   @media (max-width: 768px) {
