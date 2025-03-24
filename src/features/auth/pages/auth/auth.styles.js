@@ -1,10 +1,9 @@
-import { Form as FormAntd, Input as InputAntd, Button as ButtonAntd } from 'antd';
 import styled from 'styled-components';
+import { Button, Input as InputAntd } from 'antd';
 
 export const Container = styled.div`
   display: flex;
   height: 100vh;
-  width: 100vw;
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -26,7 +25,6 @@ export const ImageContainer = styled.div`
 export const FormContainer = styled.div`
   flex: 1;
   display: flex;
-  align-items: center;
   justify-content: center;
   background-color: #f5f5f5;
 
@@ -36,28 +34,26 @@ export const FormContainer = styled.div`
   }
 `;
 
-export const Form = styled(FormAntd)`
-  width: 720px;
-  padding: 30px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-
-  @media (max-width: 768px) {
-    width: 100%;
-    padding: 16px;
-  }
+export const FormWrapper = styled.div`
+  width: 100%;
+  max-width: 592px;
+  padding: 40px;
 `;
 
-export const StyledFormItem = styled(FormAntd.Item)`
-  margin-bottom: 16px;
+export const SubmitButton = styled(Button)`
+  margin-top: 24px;
+  width: 100%;
+  height: 48px;
+  background-color: #ffd600;
+  color: black;
+  font-weight: 600;
+  border-radius: 6px;
+  border: none;
 
-  .ant-form-item-label label::before {
-    display: inline-block;
-    margin-right: 4px;
-    color: red;
-    font-size: 14px;
-    content: '*';
+  &:hover,
+  &:focus {
+    background-color: #ffce00;
+    color: black;
   }
 `;
 
@@ -88,28 +84,5 @@ export const InputPassword = styled(InputAntd.Password)`
   @media (max-width: 768px) {
     font-size: 16px;
     height: 40px;
-  }
-`;
-
-export const SubmitButton = styled(ButtonAntd)`
-  width: 100%;
-  height: 50px;
-  background-color: #ffdc00;
-  border-color: #ffdc00;
-  color: #000;
-  font-weight: bold;
-  font-size: 18px;
-  transition:
-    background-color 0.3s,
-    border-color 0.3s;
-
-  &:hover {
-    background-color: #ffe333;
-    border-color: #ffe333;
-  }
-
-  @media (max-width: 768px) {
-    height: 40px;
-    font-size: 16px;
   }
 `;
